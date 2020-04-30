@@ -1,0 +1,29 @@
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="table-info">
+                <th scope="col" *ngFor="let columna of nombreColumnas">{{columna}}</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let estudiante of listaEstudiantes">
+            <tr class="table-danger" *ngIf="estudiante.nota < 3 else gano">
+                <th scope="row">{{estudiante.codigo}}</th>
+                <td>{{estudiante.nombre}}</td>
+                <td>{{estudiante.apellido}}</td>
+                <th scope="row">{{estudiante.nota}}</th>
+                <th scope="row">{{reprobo}}</th>
+            </tr>
+            <ng-template #gano>
+                <tr>
+                    <th scope="row">{{estudiante.codigo}}</th>
+                    <td>{{estudiante.nombre}}</td>
+                    <td>{{estudiante.apellido}}</td>
+                    <th scope="row">{{estudiante.nota}}</th>
+                    <th scope="row">{{aprobo}}</th>
+                </tr>
+            </ng-template>
+
+
+        </tbody>
+    </table>
+</div>
